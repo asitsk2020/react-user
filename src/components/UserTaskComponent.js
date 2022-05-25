@@ -20,14 +20,14 @@ const UserTaskComponent = () => {
              });
     }
     const deleteTask=(taskId)=>{
-
-      console.log(taskId);
-      UserService.deleteTask(taskId).then((response)=>{
-             getAllUserTasks();
-      }).catch(error=>{
-        console.log(error);
-      })
-    }
+      UserService.deleteTask(taskId).then((response) => {
+        if (response.data != null) {
+          alert("Task Deleted Successfully!");
+          getAllUserTasks();
+        }
+      });
+     
+    } 
   return (
     <div className="container">
       <h2 className="text-center">User Task Lists</h2>

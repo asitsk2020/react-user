@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const USER_TASK_REST_API_URL = 'http://localhost:9000/restapi/users';
+const USER_TASK_REST_API_URL = 'http://localhost:9000/restapi/users/';
 
 class UserService {
   getAllUserTasks() {
@@ -12,11 +12,11 @@ class UserService {
   }
 
   getUserTaskById(id) {
-    return axios.get(USER_TASK_REST_API_URL, +'/' + id);
+    return axios.get(USER_TASK_REST_API_URL + id);
   }
 
   deleteTask(taskId) {
-    return axios.delete(USER_TASK_REST_API_URL, +'/' + taskId);
+    return axios.delete(USER_TASK_REST_API_URL + taskId);
   }
 }
 
